@@ -1,10 +1,10 @@
 // //currently:
 // //defaults to login page with option to click link to redirect to register page 
 // //redirects from register to login pages but the login page redirects to itself-- failureRedirect
-if (process.env.NODE_ENV !=="production") {
-	require("dotenv").config();
-}
-
+// if (process.env.NODE_ENV !=="production") {
+// 	require("dotenv").config();
+// }
+console.log(require('dotenv').config());
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -15,9 +15,7 @@ const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 //const MongoStore = require("connect-mongostore")(session);
-
 //connecting to mongoDB
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/usericecreamtruck");
 //let configDB = require("./config/database.js");
 
@@ -41,7 +39,6 @@ initializePassport(
 	email => users.find(user => user.email === email),
 	id => users.find(user => user.id === id)
 )
-
 
 app.set("view-engine", "ejs");
 //app.set("trust proxy", 1);

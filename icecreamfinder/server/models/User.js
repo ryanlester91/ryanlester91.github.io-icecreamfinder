@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
     email: { type: String, required: true, autoIndex: { unique: true } },
     password: { type: String, required: true, autoIndex: {unique: true} }
  });
- UserSchema.pre(save, function(next) {
+ UserSchema.pre('save', function(next) {
     var user = this;
  // only hash the password if it has been modified (or is new)
  if (!user.isModified('password')) return next();
@@ -28,4 +28,4 @@ var mongoose = require('mongoose'),
         cb(null, isMatch);
     });
  };
- module.exports = mongoose.model(User, UserSchema);
+ module.exports = mongoose.model('User', UserSchema);

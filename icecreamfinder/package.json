@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ryanlester91/IceCream-Truck-Finder#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "connect-mongostore": "^0.1.4",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
