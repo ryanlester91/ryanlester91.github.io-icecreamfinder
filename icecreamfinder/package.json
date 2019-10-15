@@ -1,0 +1,37 @@
+{
+  "name": "IceCream-Truck-Finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "User.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanlester91/IceCream-Truck-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanlester91/IceCream-Truck-Finder/issues"
+  },
+  "homepage": "https://github.com/ryanlester91/IceCream-Truck-Finder#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-mongostore": "^0.1.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.7.4",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "nodemon": "^1.19.3"
+  }
+}

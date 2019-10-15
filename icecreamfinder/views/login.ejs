@@ -1,0 +1,69 @@
+<head>
+
+    <meta charset="UTF-8">
+    <title>Passport.JS & BCrypt Test- Login</title>
+  
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+  </head>
+  
+  
+  <body>
+    <!--Something's screwy with the "ejs %-tags" functioning-->
+    <!--<% if (messages.error) { %>
+      <%= messages.error %>
+      <% } %>-->
+    <div class="container">
+  
+      <br>
+  
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1 class="text-center">Passport.JS & BCrypt Test- Login</h1>
+      </div>
+  
+      <div class="row">
+  
+        <!-- Sign-Up Card-->
+        <div class="col-lg-6">
+          <div class="card card-default">
+            <div class="card-header">
+              Login
+            </div>
+            <div class="card-body">
+  
+              <!-- Sign-up Form (note the various input "types")-->
+              <form action="/login" method="POST">
+                  <!--<div class="form-group row">
+                    <label for="name">Name:</label>
+                    <input class="form-control" id="name" name="name" type="name">
+                  </div>-->
+
+                <div class="form-group row">
+                  <label for="email">Email:</label>
+                  <input class="form-control" id="email" name="email" type="email">
+                </div>
+              
+                <div class="form-group row">
+                  <label for="password">Password:</label>
+                  <input class="form-control" id="password" name="password" type="password">
+                </div>
+                <button action="POST" type="submit">Log In</button>
+              </div>
+        </div>
+  
+        
+  
+      </div>
+  
+    </div>
+  
+    <a href="/register">Register</a><br>
+    <a href="/">Not an employee? Click here</a>
+    
+  
+  
+  
+  </body>
+  
