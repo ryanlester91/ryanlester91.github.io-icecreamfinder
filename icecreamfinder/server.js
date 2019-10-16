@@ -4,7 +4,7 @@
 // if (process.env.NODE_ENV !=="production") {
 // 	require("dotenv").config();
 // }
-console.log(require('dotenv').config());
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -14,6 +14,7 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const User = require("./server/models/User")
 //const MongoStore = require("connect-mongostore")(session);
 //connecting to mongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/usericecreamtruck");
@@ -118,18 +119,28 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
 });
 
 app.post("/register", checkNotAuthenticated, async (req, res) => {
-	try {
-		const hashedPassword = await bcrypt.hash(req.body.password, 10)
-		users.push({
-		id: Date.now().toString(),
-		//name: req.body.name,
+	var password = req.body.password;
+
+	var newUser = new User({
 		email: req.body.email,
-		password: hashedPassword 
+		password: req.body.password		
+	});
+	User.createUser(newUser, function(err, user) {
+		if (err) throw (err);
+		res.send(user).end();
 	})
+	// try {
+	// 	const hashedPassword = await bcrypt.hash(req.body.password, 10)
+	// 	users.push({
+	// 	id: Date.now().toString(),
+	// 	//name: req.body.name,
+	// 	email: req.body.email,
+	// 	password: hashedPassword 
+	// })
 	res.redirect("/login")
-	} catch {
+	// } catch {
 	res.redirect("/register")	
-	}
+	//}
 	console.log(users);
 });
 
