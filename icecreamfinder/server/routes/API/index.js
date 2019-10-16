@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const truckRoutes = require("./Truck");
-const productRoutes = require("./Products");
-const userRoutes = require("./User");
+const truckRoutes = require("../../models/Truck");
+const productRoutes = require("../../models/Products");
+const userRoutes = require("../../models/User");
 
 router.use("/products", productRoutes);
 router.use("/trucks", truckRoutes);
