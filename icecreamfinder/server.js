@@ -14,7 +14,7 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-const User = require("./server/models/User")
+const User = require("./server/models/API/User")
 //const MongoStore = require("connect-mongostore")(session);
 //connecting to mongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/usericecreamtruck");
@@ -81,7 +81,7 @@ if (process.env.NODE_ENV === "production") {
 
 //routes
 //app(routes);
-let User = require("./server/models/user");
+let User = require("./server/models/API/User");
 
 app.get("/", checkAuthenticated, (req, res) => {
 	res.render("index.ejs", { email: req.user.email })
