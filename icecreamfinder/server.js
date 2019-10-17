@@ -14,8 +14,11 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-const User = require("./server/models/User")
+
+
+const routes = require("./server/routes");
 //const MongoStore = require("connect-mongostore")(session);
+
 //connecting to mongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/usericecreamtruck");
 //let configDB = require("./config/database.js");
@@ -81,7 +84,9 @@ if (process.env.NODE_ENV === "production") {
 
 //routes
 //app(routes);
-let User = require("./server/models/User");
+//let User = require("./server/models/User");
+//let User = require("./server/models/API/User");
+app.use(routes);
 
 app.get("/", checkAuthenticated, (req, res) => {
 	res.render("index.ejs", { email: req.user.email })
@@ -125,22 +130,22 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
 		email: req.body.email,
 		password: req.body.password		
 	});
-	User.createUser(newUser, function(err, user) {
+	/*User.createUser(newUser, function(err, user) {
 		if (err) throw (err);
-		res.send(user).end();
+		res.send(user).end();*/
+	//})
+	try {
+		const hashedPassword = await bcrypt.hash(req.body.password, 10)
+		users.push({
+		id: Date.now().toString(),
+		//name: req.body.name,
+		email: req.body.email,
+		password: hashedPassword 
 	})
-	// try {
-	// 	const hashedPassword = await bcrypt.hash(req.body.password, 10)
-	// 	users.push({
-	// 	id: Date.now().toString(),
-	// 	//name: req.body.name,
-	// 	email: req.body.email,
-	// 	password: hashedPassword 
-	// })
-	res.redirect("/login")
-	// } catch {
+	*res.redirect("/login")
+	 } catch {
 	res.redirect("/register")	
-	//}
+	}
 	console.log(users);
 });
 
@@ -162,10 +167,10 @@ function checkNotAuthenticated(req, res, next) {
 		return res.redirect('/');
 	}
 	next();
-	
+
 }
 app.listen(3000);
 
 
 
-
+	

@@ -17,3 +17,21 @@ export default {
         return axios.put("/api/products/" + id);
     }
 }
+
+export default {
+    getAllUsers: function() {
+        return axios.get("/api/users");
+    },
+    getUser: function(id) {
+        return axios.get("/api/users/" + id);
+    },
+    deleteUser: function(id) {
+        return axios.get("/api/users/" + id);
+    },
+    newUser: function(userData) {
+        return axios.post("/api/users", userData);
+    },
+    updateUser: function(id) {
+        return axios.put("/api/users/" + id);
+    }
+}
