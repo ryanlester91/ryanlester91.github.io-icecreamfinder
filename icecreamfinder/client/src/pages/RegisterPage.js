@@ -3,7 +3,7 @@ import { Container, Row, Col } from "./Components/Grid"
 import { Input, TextArea, FormBtn } from "../Components/Form";
 import React, { Component } from "react";
 
-class LogInPage extends Component {
+class RegisterPage extends Component {
     render() {
         return (
             <Container fluid>

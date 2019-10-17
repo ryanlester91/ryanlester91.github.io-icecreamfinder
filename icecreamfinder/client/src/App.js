@@ -8,6 +8,10 @@ import { Input, TextArea, FormBtn } from "./Components/Form";
 import { List, ListItem } from "./Components/List";
 import Navbar from "./Components/Navbar";
 import Button from "./Components/Button";
+import ProductList from "./pages/ProductList";
+import RegisterPage from "./pages/RegisterPage";
+import LogInPage from "./pages/LogInPage";
+
 class App extends Component {
   state = {
     iceCreams: [],
